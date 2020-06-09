@@ -1,0 +1,24 @@
+input [type='text'] {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+  }
+  
+  input:focus {
+    background-color:rosybrown;
+  }
+  
+    
+
+  .form{
+    margin: 100px;
+    margin-left: 500px;
+    margin-right: 500px;
+    font-size: 20;
+    text-align: center;
+    background-color:grey;
+    
+  }

@@ -1,0 +1,61 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  
+}
+
+body{
+    align-content: center;
+    background-image: url(scene.jpeg);
+}
+
+.button {
+  background-color:  #333 ;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.teacher{
+  margin: 100px 225px;
+}
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.button3{
+  width: 50%;
+  margin: 100px 440px;
+}
+.table{
+    
+    border-collapse: collapse;
+    width: 80%;
+  
+}
+  td {
+    padding: 4px;
+    text-align:center;
+    border-bottom: 1px solid #ddd;
+    background-color:#f5f5f5;
+  }
+  #head{
+    padding: 4px;
+  }
+#query{
+  height: 50px;
+}
