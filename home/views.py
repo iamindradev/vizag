@@ -1,10 +1,14 @@
 from django.http import HttpResponse, HttpRequest, Http404 , JsonResponse
-from .models import mark,teacher,login
+from .models import mark,teacher,login,querytb
 import json 
 login_data = login.objects.all()
-# Create your views here.
+# -------------------------------------------------------------------------------------------------------------------------------
 def homepage(request):
     return HttpResponse("hello")
+
+
+#-----------------------------------------------------------------------------------------------------------------------------------
+
 def loginpage(request):
 
     if request.method == 'POST':
@@ -66,6 +70,7 @@ def loginpage(request):
     
     #     # username=request.POST.get('username')
         # print(username)
+#------------------------------------------------------------------------------------------------------------------------------------------
 def addstudent(request):
     if request.method =="POST":
     
@@ -76,16 +81,15 @@ def addstudent(request):
         r={"data":k,"status":"ok" } 
         y=json.dumps(r)
     return HttpResponse(y)
+#----------------------------------------------------------------------------------------------------------------------------------------------
 def seedetails(request):
     if request.method == "POST":
         teacher_data = list(teacher.objects.all().values())
     return JsonResponse(teacher_data , safe= False)
 
-
+#--------------------------------------------------------------------------------------------------------------------------------------
 def update(request):
     if request.method =="POST":
-
-    
         body_unicode = request.body.decode('utf-8')
         k = json.loads(body_unicode)
         username=k['lib_id']
@@ -98,6 +102,37 @@ def update(request):
 
 
     JsonResponse(p, safe= False)
+#---------------------------------------------------------------------------------------------------------------------------------------------------
+def raisequery(request):
+    if request.method=="POST":
+        query= json.loads(request.body)
+        id=query['lib']
+        if teacher.objects.filter(lib=id).value()==id:
+            querytb.objects.create(**query)
+            querytb.objects.filter(lib=id).update(status='pending')
+            print(query)
+        else :
+            response="enter your lib id"
+            
+    return JsonResponse(response,safe= False)
 
-
-
+#---------------------------------------------------------------------------------------------------------------------------------------------------
+def updatequery(request):
+    if request.method=="POST":
+        add=json.loads(request.body)
+        value=add['value']
+        if value==update:
+            querytb.objects.filter(lib=id).update(status='approved')
+            msg="APPROVED"
+        else:
+            msg="REJECTED"
+            
+#-----------------------------------------------------------------------------------------------------------------------------------------------------
+# def seequery(request):
+#     if request.method=="POST":
+#         data=json.
+def seequery(request):
+    if request.method == "POST":
+        query_data = list(querytb.objects.all().values())
+    return JsonResponse(query_data , safe= False)
+        

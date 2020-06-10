@@ -38,7 +38,8 @@ class teacher(models.Model):
     def __str__(self):
         return self.name
 
-class query(models.Model):
+class querytb(models.Model):
     lib=models.CharField(max_length=50,null=True)
     query= models.TextField(null=False ,max_length=500)
     status=models.CharField(max_length=50)
+    datetime=models.DateTimeField(auto_now_add=True, null= True)

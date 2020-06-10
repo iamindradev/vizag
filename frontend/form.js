@@ -1,7 +1,7 @@
 function takeinput(){
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
-
+    
     myobj={username: username, password: password} ;
     data= JSON.stringify(myobj);
     console.log(data)
@@ -39,6 +39,8 @@ function takeinput(){
     
     xhttp.send(data)
     console.log(myobj)
+    var store=sessionStorage.setItem("lib",data);
+    console.log(store)
 
 }
 function givedata()

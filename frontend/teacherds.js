@@ -82,5 +82,29 @@ xhttp.send(addstd)
 
 
 function giveapprove(){
-
+    var value="";
+    var xhttp = new XMLHttpRequest();
+xhttp.open("POST","http://127.0.0.1:8000/seequery/", true);
+xhttp.onreadystatechange=function()
+  {
+        console.log(this.readyState)
+        xhttp.onload=function(){
+            if(this.readyState==4 && this.status==200){
+                console.log(this.responseText)
+                
+                
+                data=JSON.parse(this.responseText);
+                console.log(data)
+                for (x in data){
+                value+="<tr><td>"+ data[x].lib+"</td><td>"+ data[x].query +
+                "</td><td><button>APPROVE</button></td><td><button>REJECT</button></td></tr>"
+                    
+                document.getElementById("table").innerHTML= value;
+    
+            }
+        }
+    };
+    
+    }
+    xhttp.send();
 }
