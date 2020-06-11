@@ -1,3 +1,4 @@
+var id= console.log(sessionStorage.getItem('id'));
 function seedetails(){
     var xhttp =  new XMLHttpRequest();
     xhttp.open("POST","http://127.0.0.1:8000/studentdata/",true);
@@ -13,7 +14,7 @@ function seedetails(){
         };
         
     }
-    xhttp.send(raisequery);
+    xhttp.send();
 
 
     
@@ -21,8 +22,7 @@ function seedetails(){
 }
 
 function raise(){
-    var libid= sessionStorage.getItem('lib')
-console.log(libid)
+    
     rsquery ={lib:document.getElementById("lib").value,
             query:document.getElementById("query").value
 }   
@@ -47,4 +47,7 @@ console.log(libid)
 }
 function seestatus(){
 
+}
+function givedata(){
+    document.getElementById("username").innerHTML=id;
 }
