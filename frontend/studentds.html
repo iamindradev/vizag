@@ -3,10 +3,10 @@
 <head>
 	<title>student dashboard</title>
 	<link rel="stylesheet" href="home.css">
-	<script src="form.js" onload="givedata()"></script>
+	<script src="studentds.js" onload="givedata()"></script>
 	<link rel="stylesheet" href="teacherds.css">
 </head>
-<body >
+<body onload="givedata()">
 	<div>
 		
 	<ul>
@@ -14,14 +14,13 @@
 	
 		<li><a href="hey.html">Logout</a></li>
 		<li><a class="active" href="">Home</a></li>
-		<li>welcome student</li>
+		<li>welcome <div id="username"></div>student</li>
 	</ul>
 		
 	</div>
 	<div>
 		<button class="button button2 teacher" onclick="seedetails()">See Details</button> 
 		<a href="query.html"><button class="button button2 teacher" onclick="addquery()">Add Query</button> </a>
-
 		<button class="button button2 teacher" onclick="seestatus()">See Status</button> 
 	</div>
 </body>
