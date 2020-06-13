@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpRequest, Http404 , JsonResponse
-from .models import mark,teacher,login,querytb
+from .models import mark,teacher,login,querytb,student
 import json 
 login_data = login.objects.all()
 # -------------------------------------------------------------------------------------------------------------------------------
@@ -135,4 +135,10 @@ def seequery(request):
     if request.method == "POST":
         query_data = list(querytb.objects.all().values())
     return JsonResponse(query_data , safe= False)
+def inserting(request):
+    if request.method=="POST":
+        image=json.loads(request.body)
+        student.objects.create(**image)
+        respone="sucess"
+    return JsonResponse(respone,safe= False)
         

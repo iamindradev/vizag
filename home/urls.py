@@ -10,6 +10,6 @@ urlpatterns = [
     # path('studentdata',views.studentdata, name= 'studentdata'),
 
     path('seequery/',views.seequery,name='seequery'),
-    path('updatequery/',views.updatequery, name='updatequery')
-
+    path('updatequery/',views.updatequery, name='updatequery'),
+    path('image/', views.inserting , name='inserting')
 ]
