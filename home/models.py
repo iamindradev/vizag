@@ -7,6 +7,19 @@ class login(models.Model):
     def __str__(self):
         return self.username
     
+class Student2(models.Model): 
+    name = models.CharField(max_length=30)
+    courses = models.ManyToManyField('Course')
+
+class Course(models.Model):
+    # Yoga, Spanish, French, etc.
+    name = models.CharField(max_length=30)
+
+class Score(models.Model):
+    date = models.DateTimeField(auto_now_add=True)
+    points = models.IntegerField(max_length=4)
+    course = models.ForeignKey('Course', on_delete=models.CASCADE)
+    student = models.ForeignKey('Student', on_delete=models.CASCADE)
 
 class student(models.Model):
     lib= models.CharField(max_length=50 ,null=True)
