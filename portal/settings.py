@@ -26,6 +26,7 @@ SECRET_KEY = 'p8pg!d^7z4z52w5ib!@b08q+0(8uaje$xbnoi0bzz7m$2&m6z*'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+#Try to avoid using '*' in Allowed Hosts, try to mention only the required IP addresses !
 
 
 # Application definition
